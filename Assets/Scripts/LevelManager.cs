@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject settingsMenu;
     [SerializeField] float sceneLoadDelay = 2f;
     ScoreKeeper scoreKeeper;
 
@@ -33,6 +35,12 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
+    }
+
+    public void Settings()
+    {
+        mainMenu.SetActive(false);
+        settingsMenu.SetActive(true);
     }
 
     IEnumerator WaitAndLoad(string sceneName, float delay)
